@@ -5,287 +5,231 @@
   <title>Redlands Redback Muay Thai | Kids Muay Thai in Cleveland / Ormiston</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Kids Muay Thai in Cleveland / Ormiston. Ages 5–11. Safe, fun, confidence-building training from Coach Calum. First class is FREE!">
+
   <style>
+    :root {
+      --red: #b91c1c;
+      --red-dark: #7f1d1d;
+      --bg-dark: #020617;
+      --bg-light: #f9fafb;
+      --text-main: #111827;
+      --muted: #6b7280;
+    }
+
+    /* GLOBAL RESET */
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      background: #f9fafb;
-      color: #111827;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
+      background: #020617;
+      color: #e5e7eb;
+
+      /* ⭐ SOFT TEXTURED BACKGROUND PATTERN */
+      background-image:
+        radial-gradient(circle at 0% 0%, rgba(255,255,255,0.04) 0%, transparent 70%),
+        repeating-linear-gradient(
+          45deg,
+          rgba(255,255,255,0.015) 0px,
+          rgba(255,255,255,0.015) 2px,
+          transparent 2px,
+          transparent 6px
+        );
+      background-size: cover;
     }
-    a { text-decoration: none; color: inherit; }
-    .page { max-width: 960px; margin: 0 auto; padding: 1.5rem; }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page { max-width: 1040px; margin: 0 auto; padding: 1.5rem 1.5rem 2.5rem; }
+
+    /* ⭐ NEXT INTAKE BANNER */
+    .intake-banner {
+      background: linear-gradient(135deg, var(--red) 0%, #f97316 100%);
+      text-align: center;
+      padding: 0.55rem 1rem;
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      border-bottom: 2px solid rgba(255,255,255,0.2);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      animation: slideDown 0.5s ease-out forwards;
+    }
 
     /* HEADER */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-top: 1rem;
-      padding-bottom: 0.5rem;
+      padding-top: 0.8rem;
+      padding-bottom: 0.6rem;
     }
-    .logo-text {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #b91c1c;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
+
+    .logo-wrap { display: flex; align-items: center; gap: 0.75rem; }
+
+    .logo-icon {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 2px solid var(--red);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; font-weight: 700;
+      color: var(--red);
     }
-    .tagline {
-      font-size: 0.85rem;
-      color: #6b7280;
-      text-align: right;
+
+    .logo-text { font-size: 1.25rem; font-weight: 800; text-transform: uppercase; }
+    .logo-sub { font-size: 0.75rem; color: #9ca3af; text-transform: uppercase; }
+
+    .header-contact { text-align: right; font-size: 0.8rem; color: #9ca3af; }
+    .header-contact strong { color: #fff; font-size: 0.9rem; }
+
+    @media (max-width: 720px) {
+      header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+      .header-contact { text-align: left; }
     }
+
+    /* HERO SECTION */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+      gap: 2rem;
+      padding: 2.5rem 0 3rem;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+    }
+
+    .pill {
+      background: rgba(248,113,113,0.12);
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      color: #fecaca;
+      font-size: 0.8rem;
+      border: 1px solid rgba(248,113,113,0.35);
+    }
+
+    .hero h1 { font-size: 2.4rem; margin: 0.5rem 0; }
+    .hero-highlight { color: var(--red); }
+    .hero-sub { color: #d1d5db; max-width: 520px; }
 
     /* BUTTONS */
     .btn-primary {
-      background: #b91c1c;
-      color: white;
-      padding: 0.8rem 1.4rem;
+      background: linear-gradient(135deg, var(--red) 0%, #f97316 100%);
+      padding: 0.85rem 1.7rem;
       border-radius: 999px;
       border: none;
-      font-weight: 600;
+      color: white;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      box-shadow: 0 12px 30px rgba(248, 113, 113, 0.5);
       cursor: pointer;
-      display: inline-block;
-      font-size: 1rem;
-    }
-    .btn-primary:hover { background: #7f1d1d; }
-
-    .btn-outline {
-      padding: 0.8rem 1.4rem;
-      border-radius: 999px;
-      background: white;
-      border: 2px solid #b91c1c;
-      color: #b91c1c;
-      font-size: 1rem;
-      cursor: pointer;
-      font-weight: 600;
-    }
-    .btn-outline:hover {
-      background: #fee2e2;
+      animation: pulseGlow 2.2s infinite ease-in-out;
     }
 
-    /* HERO */
-    .hero {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 2rem;
-      padding: 2.5rem 0;
-      align-items: center;
+    /* HERO RIGHT CARD */
+    .hero-card {
+      background: rgba(15, 23, 42, 0.6);
+      padding: 1.3rem;
+      border-radius: 1.2rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(4px);
+      animation: fadeUp 0.7s ease-out forwards;
     }
-    @media (max-width: 768px) {
-      .hero { grid-template-columns: 1fr; }
-    }
-    .hero h1 {
-      font-size: 2.2rem;
-      margin-bottom: 0.75rem;
-      line-height: 1.2;
-    }
-    .highlight { color: #b91c1c; }
 
-    .pill {
-      background: #fee2e2;
-      color: #991b1b;
-      padding: 0.35rem 0.8rem;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      margin-bottom: 1rem;
-      display: inline-block;
+    /* MAIN BODY WRAPPER */
+    .main {
+      background: #f9fafb;
+      color: #111;
+      padding: 2rem 1.5rem;
+      border-radius: 1.5rem 1.5rem 0 0;
+      margin-top: 1.4rem;
     }
+
+    .section { margin-bottom: 2rem; }
+    h2 { font-size: 1.45rem; }
 
     .card {
       background: white;
-      border: 1px solid #e5e7eb;
+      padding: 1.2rem;
       border-radius: 1rem;
-      padding: 1.25rem;
-      margin-bottom: 1rem;
+      border: 1px solid #e5e7eb;
     }
 
-    /* GRID */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-    @media (max-width: 768px) {
-      .grid-2 { grid-template-columns: 1fr; }
-    }
-
-    ul.checklist {
-      list-style: none;
-      padding: 0;
-    }
-    ul.checklist li {
-      padding-left: 1.3rem;
-      margin-bottom: 0.4rem;
-      position: relative;
-    }
-    ul.checklist li::before {
-      content: "✓";
-      color: #16a34a;
-      position: absolute;
-      left: 0;
-      top: 0;
-      font-weight: 700;
-    }
-
-    /* FORMS */
+    /* FORM */
     form { display: grid; gap: 0.75rem; }
-    input, textarea, select {
-      padding: 0.6rem;
-      width: 100%;
+    input, select, textarea {
+      padding: 0.65rem;
       border: 1px solid #d1d5db;
-      border-radius: 0.5rem;
-      font-family: inherit;
+      border-radius: 0.55rem;
+      background: white;
     }
 
-    /* FOOTER */
-    footer {
-      text-align: center;
-      color: #6b7280;
-      font-size: 0.8rem;
-      padding: 1.5rem 0 0.5rem;
+    /* ANIMATIONS */
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 12px 30px rgba(248,113,113,0.4); }
+      50% { box-shadow: 0 14px 45px rgba(248,113,113,0.8); }
     }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+
   </style>
 </head>
 
 <body>
+
+<!-- ⭐ NEXT INTAKE STRIP -->
+<div class="intake-banner">
+  ⚡ NEXT INTAKE STARTS FEB 5 — LIMITED SPOTS FOR AGES 5–11 ⚡
+</div>
+
 <div class="page">
 
   <!-- HEADER -->
   <header>
-    <div>
-      <div class="logo-text">Redlands Redback Muay Thai</div>
-      <div class="tagline">Kids Muay Thai • Cleveland / Ormiston</div>
+    <div class="logo-wrap">
+      <div class="logo-icon">R</div>
+      <div>
+        <div class="logo-text">Redlands Redback Muay Thai</div>
+        <div class="logo-sub">Kids Muay Thai • Cleveland / Ormiston</div>
+      </div>
     </div>
-    <div class="tagline">
-      0403 435 444<br>
+    <div class="header-contact">
+      <strong>0403 435 444</strong><br>
       RBMT@gmail.com
     </div>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="hero">
     <div>
-      <div class="pill">Now Open in Cleveland / Ormiston • First Class FREE</div>
-      <h1>
-        Confidence-Building <span class="highlight">Kids Muay Thai</span><br>
-        at Cleveland Scout Group Hall
-      </h1>
+      <div class="pill">First Class FREE • Wednesdays After School</div>
+      <h1>Confidence-Building <span class="hero-highlight">Kids Muay Thai</span></h1>
+      <p class="hero-sub">
+        Ages 5–11. Safe Muay Thai fundamentals taught by Coach Calum — 4 years kids coaching experience, multiple fights across QLD & Thailand.
+      </p>
 
+      <a href="#trial"><button class="btn-primary">✔ Book Free Trial</button></a>
+    </div>
+
+    <div class="hero-card">
+      <h3>Meet Coach Calum</h3>
       <p>
-        Ages 5–11. Safe, fun and structured Muay Thai classes designed to build
-        confidence, focus and discipline. Taught by an experienced local coach with real fight
-        experience in Queensland and Thailand.
-      </p>
-
-      <div style="margin-top: 1rem;">
-        <a href="#trial"><button class="btn-primary">Book a Free Trial Class</button></a>
-      </div>
-
-      <p style="font-size: 0.9rem; color: #6b7280; margin-top: 0.75rem;">
-        Small class sizes • Beginner-friendly • No experience needed
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Your Coach</h3>
-      <p>
-        <strong>Coach Calum</strong><br>
-        • 4 years kids coaching experience<br>
-        • Multiple fights across QLD and Thailand<br>
-        • Trained under Ironfist Gym + Sinbi Muay Thai<br>
-      </p>
-    </div>
-  </section>
-
-  <!-- CLASSES -->
-  <section>
-    <h2>Class Times</h2>
-    <div class="card">
-      <ul class="checklist">
-        <li><strong>3:45pm – 4:25pm</strong> — Ages 5–8</li>
-        <li><strong>4:30pm – 5:15pm</strong> — Ages 9–11</li>
-      </ul>
-      <p style="color:#6b7280; font-size:0.9rem;">
-        Every Wednesday after school • Cleveland Scout Group Hall
-      </p>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <section>
-    <h2>Pricing</h2>
-    <div class="card">
-      <p><strong>$20 per class</strong></p>
-      <p>First class is <strong>FREE</strong> for all new students.</p>
-      <ul class="checklist">
-        <li>No contracts</li>
-        <li>No joining fees</li>
-        <li>Pay per class</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- LOCATION -->
-  <section>
-    <h2>Location</h2>
-    <div class="card">
-      <p>
-        <strong>Cleveland Scout Group Hall</strong><br>
-        26 Bainbridge St, Ormiston QLD 4160
-      </p>
-      <p>
-        <a href="https://maps.app.goo.gl/7q6hQZJaXG3CeL6q7" target="_blank" style="color:#b91c1c; font-weight:600;">
-          Open in Google Maps →
-        </a>
-      </p>
-    </div>
-  </section>
-
-  <!-- CTA FORM -->
-  <section id="trial">
-    <h2>Book a Free Trial Class</h2>
-    <p>Fill in your details and Coach Calum will text or email you back to confirm your trial date.</p>
-
-    <div class="card">
-      <form action="mailto:RBMT@gmail.com?subject=New%20Trial%20Enquiry%20-%20Redlands%20Redback%20Muay%20Thai" method="post" enctype="text/plain">
-        
-        <div>
-          <label>Parent / Guardian Name</label>
-          <input type="text" name="Parent Name" required>
-        </div>
-
-        <div>
-          <label>Child's Name & Age</label>
-          <input type="text" name="Child Name & Age" required>
-        </div>
-
-        <div>
-          <label>Preferred Class</label>
-          <select name="Preferred Class" required>
-            <option value="5-8">Ages 5–8 (3:45pm)</option>
-            <option value="9-11">Ages 9–11 (4:30pm)</option>
-            <option value="Either">Either Class</option>
-          </select>
-        </div>
-
-        <div>
-          <label>Best Contact (mobile or email)</label>
-          <input type="text" name="Contact" required>
-        </div>
-
-        <button class="btn-primary" type="submit">
-          ✔ Book Free Trial Now
-        </button>
-      </form>
-    </div>
-  </section>
-
-  <footer>
-    © 2025 Redlands Redback Muay Thai • Cleveland / Ormiston
-  </footer>
-
-</div>
-</body>
-</html>
+        • 4 years coaching kids<br>
+        •
